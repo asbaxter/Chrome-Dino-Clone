@@ -31,12 +31,13 @@
     position: relative;
     top: 130px;
     left: 480px;
+    display: none;
+}
+.blockAnimate{
     animation: block 1s infinite linear;
 }
+
 @keyframes block{
     0%{left:480px;}
     100%{left:-40px;}
-}
-#score{
-    display: relative;
 }

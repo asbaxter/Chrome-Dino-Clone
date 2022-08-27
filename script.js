@@ -12,6 +12,17 @@ function jump(){
     },500);
 }
 
+function blockAnimate(){
+    if(block.classList != "blockAnimate"){
+        block.classList.add("blockAnimate");
+        block.style.display = "block"
+    }
+    setTimeout(function(){
+        block.classList.remove("blockAnimate")
+        block.style.display = "none"
+    },1000);
+}
+
 let checkDead = setInterval(function(){
     let characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
     let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
@@ -39,3 +50,14 @@ function playAgain(){
         return;
     }
 }
+
+function randomizeBockIntervals() {}
+
+(function loop() {
+    var rand = Math.round(Math.random() * (4000 - 100)) + 1000;
+    setTimeout(function() {
+            blockAnimate()
+            randomizeBockIntervals();
+            loop();  
+    }, rand);
+}());
