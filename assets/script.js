@@ -16,14 +16,14 @@ function jump(){
 function duck(){
     character.style.height = "25px";
     character.style.top = "175px";
-    floatingBlock.style.top = "125px";
-    block.style.top = "155px";
+    floatingBlock.style.top = "110px";
+    block.style.top = "140px";
 
     setTimeout(function(){
         character.style.height = "50px";
         character.style.top = "150px";
-        floatingBlock.style.top = "100px";
-        block.style.top = "130px";
+        floatingBlock.style.top = "85px";
+        block.style.top = "115px";
     },500);
 }
 
@@ -65,13 +65,13 @@ let checkDead = setInterval(function(){
     let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
     let floatingBlockLeft = parseInt(window.getComputedStyle(floatingBlock).getPropertyValue("left"));
 
-    if(blockLeft<20 && blockLeft>0 && characterTop>=130){
+    if(blockLeft<40 && blockLeft>0 && characterTop>=130){
         block.style.animation = "none";
         block.style.display = "none";
         alert("You Lose Your Final Score is: " + scoreInt);
         playAgain();
     }
-    if(floatingBlockLeft<20 && floatingBlockLeft>0 && characterTop<=150){
+    if(floatingBlockLeft<40 && floatingBlockLeft>0 && characterTop<=150){
         floatingBlock.style.animation = "none";
         floatingBlock.style.display = "none";
         alert("You Lose Your Final Score is: " + scoreInt);

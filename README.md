@@ -1,5 +1,7 @@
 # Chrome-Dino-Clone
 
+![Screen shot of app](./assets/images/dino_clone_screenshot.png)
+
 [Demo Video](https://watch.screencastify.com/v/3l8elYnM4sSGomck8EyF)
 
 Base code followed:
@@ -12,3 +14,4 @@ Base code followed:
 - Second Enemy block that player has to duck
 - Randomized rate at which blocks appear
 - playagain functionality
+- Sprites and background image
