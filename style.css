@@ -15,9 +15,10 @@
     top: 150px;
 
 }
-.animate{
+.animateJump{
     animation: jump 500ms;
 }
+
 @keyframes jump{
     0%{top:150px;}
     30%{top:100px;}

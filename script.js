@@ -4,13 +4,36 @@ let score = document.getElementById("score")
 var scoreInt = 0;
 
 function jump(){
-    if(character.classList != "animate"){
-        character.classList.add("animate");
+    if(character.classList != "animateJump"){
+        character.classList.add("animateJump");
     }
     setTimeout(function(){
-        character.classList.remove("animate")
+        character.classList.remove("animateJump")
     },500);
 }
+
+function duck(){
+    character.style.height = "25px";
+    character.style.top = "175px";
+    block.style.top = "155px";
+
+    setTimeout(function(){
+        character.style.height = "50px";
+        character.style.top = "150px";
+        block.style.top = "130px";
+    },500);
+}
+
+document.addEventListener('keydown', (event) => {
+    var name = event.key;
+
+    if(name == 'ArrowUp'){
+        jump();
+    }
+    if(name == 'ArrowDown'){
+        duck();
+    }
+  }, false);
 
 function blockAnimate(){
     if(block.classList != "blockAnimate"){
