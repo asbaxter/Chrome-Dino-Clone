@@ -1,5 +1,7 @@
 let character = document.getElementById("character")
 let block = document.getElementById("block")
+let score = document.getElementById("score")
+var scoreInt = 0;
 
 function jump(){
     if(character.classList != "animate"){
@@ -17,7 +19,23 @@ let checkDead = setInterval(function(){
     if(blockLeft<20 && blockLeft>0 && characterTop>=130){
         block.style.animation = "none";
         block.style.display = "none";
-        alert("You Lose");
+        alert("You Lose Your Final Score is: " + scoreInt);
+        playAgain();
     }
 
 },10);
+
+let checkScore = setInterval(function(){
+    score.textContent = "Score: " + scoreInt;
+    scoreInt++;
+},100);
+
+function playAgain(){
+    if (confirm("Play Again?") == true){
+        document.location.reload();
+    }
+    else{
+        clearInterval(checkScore);
+        return;
+    }
+}

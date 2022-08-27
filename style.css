@@ -4,7 +4,7 @@
 }
 #game{
     width: 500px;
-    height: 200px;
+    height: 219px;
     border: 1px solid black;
 }
 #character{
@@ -36,4 +36,7 @@
 @keyframes block{
     0%{left:480px;}
     100%{left:-40px;}
+}
+#score{
+    display: relative;
 }
