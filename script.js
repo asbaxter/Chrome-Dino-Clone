@@ -1,6 +1,7 @@
 let character = document.getElementById("character")
 let block = document.getElementById("block")
 let score = document.getElementById("score")
+let floatingBlock = document.getElementById("floatingBlock")
 var scoreInt = 0;
 
 function jump(){
@@ -15,11 +16,13 @@ function jump(){
 function duck(){
     character.style.height = "25px";
     character.style.top = "175px";
+    floatingBlock.style.top = "125px";
     block.style.top = "155px";
 
     setTimeout(function(){
         character.style.height = "50px";
         character.style.top = "150px";
+        floatingBlock.style.top = "100px";
         block.style.top = "130px";
     },500);
 }
@@ -46,13 +49,31 @@ function blockAnimate(){
     },1000);
 }
 
+function floatingBlockAnimate(){
+    if(floatingBlock.classList != "floatingBlockAnimate"){
+        floatingBlock.classList.add("floatingBlockAnimate");
+        floatingBlock.style.display = "block"
+    }
+    setTimeout(function(){
+        floatingBlock.classList.remove("floatingBlockAnimate")
+        floatingBlock.style.display = "none"
+    },1000);
+}
+
 let checkDead = setInterval(function(){
     let characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
     let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
+    let floatingBlockLeft = parseInt(window.getComputedStyle(floatingBlock).getPropertyValue("left"));
 
     if(blockLeft<20 && blockLeft>0 && characterTop>=130){
         block.style.animation = "none";
         block.style.display = "none";
+        alert("You Lose Your Final Score is: " + scoreInt);
+        playAgain();
+    }
+    if(floatingBlockLeft<20 && floatingBlockLeft>0 && characterTop<=150){
+        floatingBlock.style.animation = "none";
+        floatingBlock.style.display = "none";
         alert("You Lose Your Final Score is: " + scoreInt);
         playAgain();
     }
@@ -74,13 +95,24 @@ function playAgain(){
     }
 }
 
-function randomizeBockIntervals() {}
+function randomizeBock() {}
 
 (function loop() {
     var rand = Math.round(Math.random() * (4000 - 100)) + 1000;
     setTimeout(function() {
-            blockAnimate()
-            randomizeBockIntervals();
-            loop();  
+        
+        let randBlock = Math.floor(Math.random() * 2) + 1;
+
+        if (randBlock == 1){
+            blockAnimate();
+            randomizeBock();
+            loop(); 
+        }
+        else{
+            floatingBlockAnimate();
+            randomizeBock();
+            loop(); 
+        }
+
     }, rand);
 }());

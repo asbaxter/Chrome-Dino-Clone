@@ -42,3 +42,21 @@
     0%{left:480px;}
     100%{left:-40px;}
 }
+
+#floatingBlock{
+    width: 20px;
+    height: 20px;
+    background-color: green;
+    position: relative;
+    top: 100px;
+    left: 480px;
+    display: none;
+}
+.floatingBlockAnimate{
+    animation: block 1s infinite linear;
+}
+
+@keyframes floatingBlock{
+    0%{left:480px;}
+    100%{left:-40px;}
+}
